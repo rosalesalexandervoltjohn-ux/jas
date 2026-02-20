@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Girl ❤️</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body, html { 
+            height: 100%; 
+            background: #0a0a0a; 
+            color: #fff; 
+            font-family: 'Courier New', Courier, monospace; 
+            overflow: hidden; 
+            scroll-behavior: smooth;
+        }
+
+        section { 
+            height: 100vh; 
+            width: 100vw; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 20px; 
+            text-align: center; 
+        }
+
+        /* PAGE 1: TERMINAL INTRO */
+        #terminal-text { 
+            font-size: 1.2rem; 
+            color: #9d4edd; /* Purple color */
+            min-height: 4em; 
+            margin-bottom: 20px; 
+            line-height: 1.5;
+        }
+        .next-btn { 
+            display: none; 
+            background: transparent; 
+            color: #9d4edd; 
+            border: 2px solid #9d4edd; 
+            padding: 12px 30px; 
+            cursor: pointer; 
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        .next-btn:hover { background: #9d4edd; color: #000; box-shadow: 0 0 15px #9d4edd; }
+
+        /* PAGE 2: THE IDENTITY QUIZ */
+        #page-two { background: #0a0a0a; display: none; }
+        .quiz-container { 
+            background: rgba(157, 78, 221, 0.05); 
+            padding: 40px; 
+            border-radius: 20px; 
+            border: 1px solid #9d4edd; 
+            max-width: 450px; 
+        }
+        .quiz-container h2 { margin-bottom: 20px; color: #9d4edd; }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 20px; 
+            background: #000; 
+            border: 1px solid #9d4edd; 
+            color: #fff; 
+            text-align: center;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+        }
+        #quiz-feedback { margin-top: 10px; font-size: 0.9rem; color: #9d4edd; height: 20px; }
+
+        /* PAGE 3: THE LSM & HEART */
+        #page-three { 
+            position: relative; 
+            background: radial-gradient(circle, #1a0033 0%, #000 100%); 
+            display: none; 
+            overflow-y: auto; 
+            min-height: 100vh;
+        }
+        canvas { position: fixed; top: 0; left: 0; z-index: 1; pointer-events: none; }
+        
+        .lsm-card { 
+            position: relative; 
+            z-index: 10; 
+            max-width: 650px; 
+            background: rgba(20, 0, 40, 0.7); /* Deep purple transparent background */
+            backdrop-filter: blur(15px); 
+            padding: 45px; 
+            border-radius: 25px; 
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            margin: 60px auto; /* Centered automatically */
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+        }
+        .lsm-card h1 { color: #c77dff; margin-bottom: 30px; font-family: 'Georgia', serif; font-size: 2.2rem; text-align: center; }
+        .lsm-card p { 
+            line-height: 1.8; 
+            font-size: 1.1rem; 
+            color: #f0f0f0; 
+            font-family: 'Arial', sans-serif; 
+            text-align: left; 
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="page-one">
+        <div id="terminal-text"></div>
+        <button id="startQuizBtn" class="next-btn" onclick="showQuiz()">[ INITIATE IDENTITY CHECK ]</button>
+    </section>
+
+    <section id="page-two">
+        <div class="quiz-container">
+            <h2>Identity Verification</h2>
+            <p style="margin-bottom: 20px; color: #9d4edd; font-weight: bold;">
+                When is our anniversary?
+            </p>
+            <input type="password" id="quiz-answer" placeholder="MMDDYY" maxlength="6" onkeypress="handleKeyPress(event)">
+            <button class="next-btn" style="display: block; width: 100%;" onclick="checkAnswer()">VERIFY</button>
+            <div id="quiz-feedback"></div>
+        </div>
+    </section>
+
+    <section id="page-three">
+        <canvas id="heartCanvas"></canvas>
+        <div class="lsm-card">
+            <h1>Happy Monthsary, bebu ❤️</h1>
+            <p>Happy monthsary, baby. I just wanted to take a moment to thank you for your endless love, your trust, and for staying by my side.</p>
+            
+            <p>We have our moments of misunderstanding. We clash, we get frustrated, but I love that we don’t just walk away from those moments. We get through them. I want you to know, no matter what happens, I’m always in your corner. If you’re having a bad day or just need someone to vent to, I’m there. I know my moods can be a lot to handle. Thank you for being patient with me when I’m off. It takes a lot of grace to put up with that, and I don't say thank you enough for it. Even on the days when I’m not exactly easy to love, you’re still there.</p>
+            
+            <p>Thank you for being honest with me. Even when the truth is hard to hear, I value the fact that we can be real with each other without pretending. I appreciate how you handle my quirks. You know how I am, and you don’t try to change the parts of me that make me who I am.</p>
+            
+            <p>I promise to keep choosing you every day. Love isn’t just a feeling that happens; it’s a decision to stay committed, and I’ve made that decision with you. I want you to always feel like you have a safe place with me. No matter what’s going on in the world, I want our relationship to be the one thing you can always depend on.</p>
+            
+            <p>I love you more than words can say. Happy monthsary, and thank you for being the person you are.</p>
+        </div>
+    </section>
+
+    <script>
+        // --- PAGE 1 LOGIC ---
+        const textElement = document.getElementById('terminal-text');
+        const introMsg = "> System: Booting Love_Protocol...\n> Security: Authorized User Only.\n> Status: Verification Required.\n> Target: My Favorite Person.";
+        let idx = 0;
+
+        function typeWriter() {
+            if (idx < introMsg.length) {
+                textElement.innerHTML += introMsg.charAt(idx) === '\n' ? '<br>' : introMsg.charAt(idx);
+                idx++;
+                setTimeout(typeWriter, 45);
+            } else {
+                document.getElementById('startQuizBtn').style.display = 'inline-block';
+            }
+        }
+        window.onload = typeWriter;
+
+        // --- PAGE 2 LOGIC ---
+        function showQuiz() {
+            document.getElementById('page-one').style.display = 'none';
+            document.getElementById('page-two').style.display = 'flex';
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') checkAnswer();
+        }
+
+        function checkAnswer() {
+            const ans = document.getElementById('quiz-answer').value;
+            if (ans === "082025") { 
+                showLSM();
+            } else {
+                document.getElementById('quiz-feedback').innerText = "Access Denied. That's not the date.";
+                document.getElementById('quiz-answer').value = "";
+            }
+        }
+
+        // --- PAGE 3 LOGIC ---
+        function showLSM() {
+            document.getElementById('page-two').style.display = 'none';
+            document.getElementById('page-three').style.display = 'block';
+            document.body.style.overflow = "auto";
+            createParticles();
+            drawHeart();
+        }
+
+        const canvas = document.getElementById('heartCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        function createParticles() {
+            for (let i = 0; i < 400; i++) {
+                particles.push({
+                    t: Math.random() * Math.PI * 2,
+                    size: Math.random() * 2 + 1,
+                    speed: Math.random() * 0.012 + 0.005
+                });
+            }
+        }
+
+        function drawHeart() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(p => {
+                const x = 16 * Math.pow(Math.sin(p.t), 3);
+                const y = -(13 * Math.cos(p.t) - 5 * Math.cos(2 * p.t) - 2 * Math.cos(3 * p.t) - Math.cos(4 * p.t));
+                
+                const pulse = Math.sin(Date.now() * 0.003) * 10;
+                const drawX = canvas.width / 2 + x * (18 + pulse/2);
+                const drawY = canvas.height / 2 + y * (18 + pulse/2);
+                
+                ctx.fillStyle = "#9d4edd"; // Purple Heart Particles
+                ctx.beginPath();
+                ctx.arc(drawX, drawY, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                p.t += p.speed;
+            });
+            requestAnimationFrame(drawHeart);
+        }
+    </script>
+</body>
+</html>
